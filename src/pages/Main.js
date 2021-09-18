@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet';
 import CardGame from '../components/CardGame';
 import { useEffect, useState } from 'react';
+require('dotenv').config();
 
 const Main = () => {
   const [items, setItems] = useState([]);
@@ -10,7 +11,7 @@ const Main = () => {
       'method': 'GET',
       'headers': {
         'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com',
-        'x-rapidapi-key': 'ff699e3598msha4c8aded60ecd71p1137acjsnc3e588675ce9'
+        'x-rapidapi-key': process.env.REACT_APP_XRAPIDAPIKEY
       }
     });
 
@@ -32,7 +33,8 @@ const Main = () => {
       <div>
         {
           items.map(game =>
-            <CardGame key={game.id} img={game.thumbnail}
+            <CardGame key={game.id}
+                      img={game.thumbnail}
                       title={game.title}
                       short_description={game.short_description}
             />
