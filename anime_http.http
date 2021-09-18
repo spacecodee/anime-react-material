@@ -1,0 +1,4 @@
+GET https://api.jikan.moe/v3/search/anime?q=dragon ball
+Accept: application/json
+
+###
